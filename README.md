@@ -6,18 +6,18 @@
 [![MCP Compatible](https://img.shields.io/badge/MCP-compatible-blue.svg)](https://modelcontextprotocol.io)
 [![Live](https://img.shields.io/endpoint?url=https://search.shaq-logistics.com/api/health&style=flat)](https://search.shaq-logistics.com)
 
-## 🚢 Overview
+## Overview
 
 **SHAQ Logistics MCP Server** connects AI assistants to real-time international shipping freight rate data. It is the first Model Context Protocol server dedicated to international freight logistics, providing access to LCL (Less than Container Load) and FCL (Full Container Load) pricing from major Chinese ports to destinations worldwide.
 
 ### Why use this MCP server?
 
-- 📊 **160,000+ live rate entries** — updated hourly from carrier feeds
-- 🌏 **15+ Chinese origins** — Shenzhen (YANTIAN/SHEKOU), Ningbo, Shanghai, Qingdao, Guangzhou, and more
-- 🌍 **200+ destinations** — US, Europe, Southeast Asia, Middle East, Latin America, Africa
-- 📦 **All container types** — 20GP, 40GP, 40HQ, 45HQ for FCL; per CBM/TON for LCL
-- 🤖 **No API key needed** — public SSE endpoint, plug-and-play with any MCP client
-- 🔒 **Privacy by design** — carrier names are not exposed; bookings are quarantined for review
+- **160,000+ live rate entries** — continuously updated
+- **15+ Chinese origins** — Shenzhen, Ningbo, Shanghai, Qingdao, Guangzhou, and more
+- **200+ destinations** — US, Europe, Southeast Asia, Middle East, Latin America, Africa
+- **All container types** — 20GP, 40GP, 40HQ, 45HQ for FCL; per CBM/TON for LCL
+- **No API key needed** — public SSE endpoint, plug-and-play with any MCP client
+- **Bookings are quarantined for review** before confirmation
 
 ### Live Endpoint
 
@@ -27,9 +27,9 @@ SSE: https://search.shaq-logistics.com/sse
 
 No authentication required. The server is publicly accessible.
 
-## 🛠️ Tools
+## Tools
 
-The MCP server exposes six tools:
+The MCP server exposes nine tools:
 
 | Tool | Description | Required inputs |
 |---|---|---|
@@ -39,75 +39,11 @@ The MCP server exposes six tools:
 | `list_ports` | List all supported ports + aliases | none |
 | `get_freight_index` | Get freight market trends | optional `route`, `period` |
 | `subscribe_rate_alert` | Subscribe to rate change alerts | `origin`, `destination`, `email` |
+| `get_sailing_schedule` | Get vessel sailing schedules | `origin`, `destination` |
+| `get_port_fees` | Get port fee types | `port` |
+| `get_customs_info` | Get customs compliance info | `country` |
 
-### 1. `search_freight_rates`
-
-Search real-time freight rates for LCL and FCL shipments.
-
-**Input Schema:**
-```json
-{
-  "origin": "Shenzhen",
-  "destination": "Los Angeles",
-  "shipment_type": "FCL",
-  "container_type": "40GP"
-}
-```
-
-**Returns:** Carrier rates, transit times, validity dates, and booking references.
-
----
-
-### 2. `create_booking`
-
-Create a freight booking with supplier and contact details.
-
-**Required fields:**
-- `contact_name`, `contact_phone`, `contact_email` (customer)
-- `supplier_name`, `supplier_phone`, `supplier_email` (supplier)
-- `po_number` (purchase order)
-
-**Returns:** Booking reference and status (`pending_review` by default).
-
----
-
-### 3. `track_booking`
-
-Track shipment status by booking number.
-
-**Input:** `booking_number`
-
-**Returns:** Current status, location history, ETA, and carrier tracking details.
-
----
-
-### 4. `list_ports`
-
-List all supported shipping ports with aliases.
-
-**Returns:** Port codes, names, country, region, and alias mappings (e.g., YANTIAN/SHEKOU → Shenzhen).
-
----
-
-### 5. `get_freight_index`
-
-Get freight market index trends and statistics.
-
-**Input:** `route` (optional), `period` (optional)
-
-**Returns:** Price trends, market averages, and volatility indicators.
-
----
-
-### 6. `subscribe_rate_alert`
-
-Subscribe to rate change alerts for specific routes.
-
-**Input:** `origin`, `destination`, `email`, `threshold` (optional)
-
-**Returns:** Subscription confirmation and alert preferences.
-
-## 📦 Installation
+## Installation
 
 ### Claude Desktop
 
@@ -157,7 +93,7 @@ Use the SSE endpoint: `https://search.shaq-logistics.com/sse`
 
 The server follows the [Model Context Protocol](https://modelcontextprotocol.io) specification and works with any compliant client.
 
-## 💡 Example Usage
+## Example Usage
 
 Once connected, ask your AI assistant natural-language questions:
 
@@ -167,9 +103,12 @@ Once connected, ask your AI assistant natural-language questions:
 - "Track booking SHAQ20260804001"
 - "What ports are available in China for export?"
 - "Show me the freight index trend for the China-US route over the last 30 days"
-- "Subscribe me to rate alerts for Shenzhen → Long Beach, email alerts when prices move >5%"
+- "Subscribe me to rate alerts for Shenzhen to Long Beach, email alerts when prices move >5%"
+- "What's the next sailing from Shenzhen to Sydney?"
+- "What are the port fees at Shanghai?"
+- "What customs documents do I need for imports to Australia?"
 
-## 🌏 Coverage
+## Coverage
 
 ### Origins (China)
 - Shenzhen (YANTIAN, SHEKOU)
@@ -195,82 +134,38 @@ Once connected, ask your AI assistant natural-language questions:
 - **LCL (Less than Container Load):** per CBM or per TON, whichever is greater
 - **FCL (Full Container Load):** 20GP, 40GP, 40HQ, 45HQ
 
-## 🔗 Links
+## Links
 
 - **Platform:** [search.shaq-logistics.com](https://search.shaq-logistics.com)
+- **MCP Guide:** [search.shaq-logistics.com/mcp-guide](https://search.shaq-logistics.com/mcp-guide)
 - **API Docs (OpenAPI 3.0):** [search.shaq-logistics.com/openapi.json](https://search.shaq-logistics.com/openapi.json)
 - **AI Crawler Guide:** [search.shaq-logistics.com/llms.txt](https://search.shaq-logistics.com/llms.txt)
-- **Detailed AI Guide:** [search.shaq-logistics.com/llms-full.txt](https://search.shaq-logistics.com/llms-full.txt)
-- **Schema.org Structured Data:** [search.shaq-logistics.com/structured-data.jsonld](https://search.shaq-logistics.com/structured-data.jsonld)
-- **MCP Tutorial (Gist):** [gist.github.com/shaqlog2-ops/cbce468eb56fe69ecc76bf94d9253e78](https://gist.github.com/shaqlog2-ops/cbce468eb56fe69ecc76bf94d9253e78)
 
-## 🏗️ Architecture
-
-```
-┌────────────────┐     SSE/HTTP      ┌──────────────────────────┐
-│  MCP Client    │ ◄────────────────► │  SHAQ MCP Server         │
-│  (Claude,      │   JSON-RPC 2.0     │  (FastAPI + SSE)         │
-│   Cursor,      │                    │                          │
-│   Continue)    │                    │  • search_freight_rates  │
-└────────────────┘                    │  • create_booking        │
-                                      │  • track_booking         │
-                                      │  • list_ports            │
-                                      │  • get_freight_index     │
-                                      │  • subscribe_rate_alert  │
-                                      └────────────┬─────────────┘
-                                                   │
-                                      ┌────────────▼─────────────┐
-                                      │  SHAQ Data Layer         │
-                                      │  • 160K+ carrier rates   │
-                                      │  • LCL rates (per CBM)   │
-                                      │  • Port aliases          │
-                                      │  • Booking system        │
-                                      └──────────────────────────┘
-```
-
-- **Backend:** Python + FastAPI + SSE transport
-- **Server:** Gunicorn (8 workers) + nginx reverse proxy
-- **Data:** SQLite (160K+ carrier rates, 287 LCL rates)
-- **Deployment:** Tencent Cloud (43.129.193.124)
-
-## 🤝 Contributing
-
-Contributions are welcome! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
-
-Ways to contribute:
-- 🐛 [Report bugs](https://github.com/shaqlog2-ops/shaq-mcp-server/issues/new?template=bug_report.md)
-- 💡 [Suggest features](https://github.com/shaqlog2-ops/shaq-mcp-server/issues/new?template=feature_request.md)
-- 🚢 [Request new ports/routes](https://github.com/shaqlog2-ops/shaq-mcp-server/issues/new?template=port_request.md)
-- 💬 [Join discussions](https://github.com/shaqlog2-ops/shaq-mcp-server/discussions)
-- 🔧 [Submit pull requests](https://github.com/shaqlog2-ops/shaq-mcp-server/compare)
-
-## 📊 Roadmap
+## Roadmap
 
 - [x] LCL + FCL rate search
 - [x] Booking creation + tracking
 - [x] Rate change alerts
-- [x] MCP SSE endpoint (public, no auth)
-- [x] OpenAPI 3.0 spec + llms.txt for AI discovery
+- [x] Sailing schedules
+- [x] Port fee lookup
+- [x] Customs compliance info
 - [ ] Air freight rates
 - [ ] Rail freight (China-Europe Railway Express)
-- [ ] Customs document lookup
-- [ ] Multi-language port aliases (zh, es, fr, de, ar)
 - [ ] Real-time container tracking (AIS integration)
-- [ ] Rate prediction model (ML-based)
 
 See [CHANGELOG.md](CHANGELOG.md) for release history.
 
-## 📄 License
+## License
 
 MIT License — see [LICENSE](LICENSE).
 
-## 🏢 About SHAQ Logistics
+## About SHAQ Logistics
 
-[SHAQ Logistics](https://search.shaq-logistics.com) is a logistics technology company building the freight rate intelligence layer for AI assistants. We aggregate carrier rate sheets, normalize port mappings, and expose clean MCP tools so any AI agent can quote shipping rates, create bookings, and track shipments in natural language.
+[SHAQ Logistics](https://search.shaq-logistics.com) is a logistics technology company building the freight rate intelligence layer for AI assistants.
 
-**Contact:** ayang@shaq-log.com  
+**Contact:** ayang@shaq-log.com
 **WhatsApp:** +86 15818505125
 
 ---
 
-**If this MCP server is useful, please ⭐ star this repository — it helps others discover it.**
+**If this MCP server is useful, please star this repository — it helps others discover it.**
