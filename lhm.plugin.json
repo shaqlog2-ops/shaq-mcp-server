@@ -1,0 +1,175 @@
+{
+  "name": "SHAQ Logistics MCP",
+  "description": "Search 160K+ freight rates, create bookings, track shipments from China ports. Real-time LCL/FCL pricing for international shipping.",
+  "version": "1.0.0",
+  "author": "SHAQ Logistics",
+  "authorUrl": "https://search.shaq-logistics.com",
+  "homepage": "https://search.shaq-logistics.com",
+  "cloudEndpoint": "https://search.shaq-logistics.com/sse",
+  "category": "business",
+  "icon": "🚢",
+  "tags": [
+    "shipping",
+    "freight",
+    "logistics",
+    "booking",
+    "china",
+    "lcl",
+    "fcl",
+    "supply-chain",
+    "export",
+    "container"
+  ],
+  "tools": [
+    {
+      "name": "search_freight_rates",
+      "description": "Search real-time freight rates for LCL and FCL shipments from China ports to worldwide destinations. Supports filtering by origin, destination, shipment type, and container type.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "origin": {
+            "type": "string",
+            "description": "Origin port name or code (e.g., Shenzhen, YANTIAN, Ningbo)"
+          },
+          "destination": {
+            "type": "string",
+            "description": "Destination port name or code"
+          },
+          "shipment_type": {
+            "type": "string",
+            "enum": [
+              "LCL",
+              "FCL"
+            ],
+            "description": "LCL or FCL"
+          },
+          "container_type": {
+            "type": "string",
+            "description": "Container type for FCL: 20GP, 40GP, 40HQ, 45HQ"
+          }
+        },
+        "required": [
+          "origin",
+          "destination"
+        ]
+      }
+    },
+    {
+      "name": "create_booking",
+      "description": "Create a freight booking with supplier and contact details. Booking is created with pending_review status.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "contact_name": {
+            "type": "string",
+            "description": "Customer contact name"
+          },
+          "contact_phone": {
+            "type": "string",
+            "description": "Customer contact phone"
+          },
+          "contact_email": {
+            "type": "string",
+            "description": "Customer contact email"
+          },
+          "supplier_name": {
+            "type": "string",
+            "description": "Supplier/freight forwarder name"
+          },
+          "supplier_phone": {
+            "type": "string",
+            "description": "Supplier phone"
+          },
+          "supplier_email": {
+            "type": "string",
+            "description": "Supplier email"
+          },
+          "po_number": {
+            "type": "string",
+            "description": "Purchase order number"
+          }
+        },
+        "required": [
+          "contact_name",
+          "contact_phone",
+          "contact_email",
+          "supplier_name",
+          "supplier_phone",
+          "supplier_email",
+          "po_number"
+        ]
+      }
+    },
+    {
+      "name": "track_booking",
+      "description": "Track shipment status by booking number. Returns current status, location history, and ETA.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "booking_number": {
+            "type": "string",
+            "description": "SHAQ booking reference number"
+          }
+        },
+        "required": [
+          "booking_number"
+        ]
+      }
+    },
+    {
+      "name": "list_ports",
+      "description": "List all supported shipping ports with codes, names, countries, and alias mappings.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {}
+      }
+    },
+    {
+      "name": "get_freight_index",
+      "description": "Get freight market index trends and statistics for specific routes or overall market.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "route": {
+            "type": "string",
+            "description": "Route filter (e.g., China-US, China-Europe)"
+          },
+          "period": {
+            "type": "string",
+            "description": "Time period: 7d, 30d, 90d"
+          }
+        }
+      }
+    },
+    {
+      "name": "subscribe_rate_alert",
+      "description": "Subscribe to freight rate change alerts for specific routes.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "origin": {
+            "type": "string",
+            "description": "Origin port"
+          },
+          "destination": {
+            "type": "string",
+            "description": "Destination port"
+          },
+          "email": {
+            "type": "string",
+            "description": "Email for alerts"
+          },
+          "threshold": {
+            "type": "number",
+            "description": "Percentage change threshold"
+          }
+        },
+        "required": [
+          "origin",
+          "destination",
+          "email"
+        ]
+      }
+    }
+  ]
+}
