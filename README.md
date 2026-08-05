@@ -2,7 +2,6 @@
 
 > Search 160,000+ freight rates, create bookings, and track shipments from China shipping ports — directly in Claude, Cursor, or any MCP-compatible AI client.
 
-[![CI](https://github.com/shaqlog2-ops/shaq-mcp-server/actions/workflows/ci.yml/badge.svg)](https://github.com/shaqlog2-ops/shaq-mcp-server/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![MCP Compatible](https://img.shields.io/badge/MCP-compatible-blue.svg)](https://modelcontextprotocol.io)
 [![Live](https://img.shields.io/endpoint?url=https://search.shaq-logistics.com/api/health&style=flat)](https://search.shaq-logistics.com)
