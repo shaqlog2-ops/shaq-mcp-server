@@ -4,7 +4,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![MCP Compatible](https://img.shields.io/badge/MCP-compatible-blue.svg)](https://modelcontextprotocol.io)
-[![Live](https://img.shields.io/endpoint?url=https://search.shaq-logistics.com/api/health&style=flat)](https://search.shaq-logistics.com)
+[![Live](https://img.shields.io/badge/Live-online-brightgreen.svg)](https://search.shaq-logistics.com)
 
 ## What is this?
 
