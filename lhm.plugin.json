@@ -1,6 +1,6 @@
 {
   "name": "SHAQ Logistics MCP",
-  "description": "Search 160K+ freight rates, create bookings, track shipments from China ports. Real-time LCL/FCL pricing for international shipping.",
+  "description": "Search 113K+ freight rates, create bookings, track shipments from China ports. Real-time LCL/FCL pricing for international shipping.",
   "version": "1.2.0",
   "author": "SHAQ Logistics",
   "authorUrl": "https://search.shaq-logistics.com",
@@ -27,12 +27,31 @@
       "inputSchema": {
         "type": "object",
         "properties": {
-          "origin": { "type": "string", "description": "Origin port name or code (e.g., Shenzhen, Ningbo)" },
-          "destination": { "type": "string", "description": "Destination port name or code" },
-          "shipment_type": { "type": "string", "enum": ["LCL", "FCL"], "description": "LCL or FCL" },
-          "container_type": { "type": "string", "description": "Container type for FCL: 20GP, 40GP, 40HQ, 45HQ" }
+          "origin": {
+            "type": "string",
+            "description": "Origin port name or code (e.g., Shenzhen, Ningbo)"
+          },
+          "destination": {
+            "type": "string",
+            "description": "Destination port name or code"
+          },
+          "shipment_type": {
+            "type": "string",
+            "enum": [
+              "LCL",
+              "FCL"
+            ],
+            "description": "LCL or FCL"
+          },
+          "container_type": {
+            "type": "string",
+            "description": "Container type for FCL: 20GP, 40GP, 40HQ, 45HQ"
+          }
         },
-        "required": ["origin", "destination"]
+        "required": [
+          "origin",
+          "destination"
+        ]
       }
     },
     {
@@ -41,15 +60,44 @@
       "inputSchema": {
         "type": "object",
         "properties": {
-          "contact_name": { "type": "string", "description": "Customer contact name" },
-          "contact_phone": { "type": "string", "description": "Customer contact phone" },
-          "contact_email": { "type": "string", "description": "Customer contact email" },
-          "supplier_name": { "type": "string", "description": "Supplier/freight forwarder name" },
-          "supplier_phone": { "type": "string", "description": "Supplier phone" },
-          "supplier_email": { "type": "string", "description": "Supplier email" },
-          "po_number": { "type": "string", "description": "Purchase order number" }
+          "contact_name": {
+            "type": "string",
+            "description": "Customer contact name"
+          },
+          "contact_phone": {
+            "type": "string",
+            "description": "Customer contact phone"
+          },
+          "contact_email": {
+            "type": "string",
+            "description": "Customer contact email"
+          },
+          "supplier_name": {
+            "type": "string",
+            "description": "Supplier/freight forwarder name"
+          },
+          "supplier_phone": {
+            "type": "string",
+            "description": "Supplier phone"
+          },
+          "supplier_email": {
+            "type": "string",
+            "description": "Supplier email"
+          },
+          "po_number": {
+            "type": "string",
+            "description": "Purchase order number"
+          }
         },
-        "required": ["contact_name", "contact_phone", "contact_email", "supplier_name", "supplier_phone", "supplier_email", "po_number"]
+        "required": [
+          "contact_name",
+          "contact_phone",
+          "contact_email",
+          "supplier_name",
+          "supplier_phone",
+          "supplier_email",
+          "po_number"
+        ]
       }
     },
     {
@@ -58,15 +106,23 @@
       "inputSchema": {
         "type": "object",
         "properties": {
-          "booking_number": { "type": "string", "description": "SHAQ booking reference number" }
+          "booking_number": {
+            "type": "string",
+            "description": "SHAQ booking reference number"
+          }
         },
-        "required": ["booking_number"]
+        "required": [
+          "booking_number"
+        ]
       }
     },
     {
       "name": "list_ports",
       "description": "List all supported shipping ports with codes, names, countries, and alias mappings.",
-      "inputSchema": { "type": "object", "properties": {} }
+      "inputSchema": {
+        "type": "object",
+        "properties": {}
+      }
     },
     {
       "name": "get_freight_index",
@@ -74,8 +130,14 @@
       "inputSchema": {
         "type": "object",
         "properties": {
-          "route": { "type": "string", "description": "Route filter (e.g., China-US, China-Europe)" },
-          "period": { "type": "string", "description": "Time period: 7d, 30d, 90d" }
+          "route": {
+            "type": "string",
+            "description": "Route filter (e.g., China-US, China-Europe)"
+          },
+          "period": {
+            "type": "string",
+            "description": "Time period: 7d, 30d, 90d"
+          }
         }
       }
     },
@@ -85,12 +147,28 @@
       "inputSchema": {
         "type": "object",
         "properties": {
-          "origin": { "type": "string", "description": "Origin port" },
-          "destination": { "type": "string", "description": "Destination port" },
-          "email": { "type": "string", "description": "Email for alerts" },
-          "threshold": { "type": "number", "description": "Percentage change threshold" }
+          "origin": {
+            "type": "string",
+            "description": "Origin port"
+          },
+          "destination": {
+            "type": "string",
+            "description": "Destination port"
+          },
+          "email": {
+            "type": "string",
+            "description": "Email for alerts"
+          },
+          "threshold": {
+            "type": "number",
+            "description": "Percentage change threshold"
+          }
         },
-        "required": ["origin", "destination", "email"]
+        "required": [
+          "origin",
+          "destination",
+          "email"
+        ]
       }
     },
     {
@@ -99,10 +177,19 @@
       "inputSchema": {
         "type": "object",
         "properties": {
-          "origin": { "type": "string", "description": "Origin port" },
-          "destination": { "type": "string", "description": "Destination port" }
+          "origin": {
+            "type": "string",
+            "description": "Origin port"
+          },
+          "destination": {
+            "type": "string",
+            "description": "Destination port"
+          }
         },
-        "required": ["origin", "destination"]
+        "required": [
+          "origin",
+          "destination"
+        ]
       }
     },
     {
@@ -111,9 +198,14 @@
       "inputSchema": {
         "type": "object",
         "properties": {
-          "port": { "type": "string", "description": "Port name" }
+          "port": {
+            "type": "string",
+            "description": "Port name"
+          }
         },
-        "required": ["port"]
+        "required": [
+          "port"
+        ]
       }
     },
     {
@@ -122,9 +214,14 @@
       "inputSchema": {
         "type": "object",
         "properties": {
-          "country": { "type": "string", "description": "Country name" }
+          "country": {
+            "type": "string",
+            "description": "Country name"
+          }
         },
-        "required": ["country"]
+        "required": [
+          "country"
+        ]
       }
     }
   ]
