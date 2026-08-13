@@ -1,58 +1,52 @@
-# SHAQ Logistics — Freight Rate Intelligence for AI
+# SHAQ Logistics
 
-> Search 113,000+ real freight rates from China to the world. Chat with Amy, our AI logistics assistant. Let AI find the best shipping rates for you.
+> Freight rate intelligence platform powered by AI. Connect your AI assistant to live shipping data worldwide.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![MCP Compatible](https://img.shields.io/badge/MCP-compatible-blue.svg)](https://modelcontextprotocol.io)
 [![Live](https://img.shields.io/badge/Live-online-brightgreen.svg)](https://search.shaq-logistics.com)
 
-## What is this?
+## What is SHAQ Logistics?
 
-SHAQ Logistics is a freight rate intelligence platform. We collect real shipping rates from major carriers and make them searchable — by humans and by AI.
+SHAQ Logistics is a freight technology platform that makes shipping rates searchable — by humans and by AI. We work with shippers, forwarders, and AI developers to bring real-time freight intelligence into the tools people already use.
 
-**Try it now:** [search.shaq-logistics.com](https://search.shaq-logistics.com)
+## What you can do
 
-## What can you do?
-
-- **Search freight rates** — Compare real FCL and LCL rates from Chinese ports to 200+ destinations worldwide
-- **Chat with Amy** — Our AI logistics assistant answers shipping questions, finds rates, and helps you quote in English, Spanish, or Chinese
+- **Search freight rates** — Compare real rates across major shipping lanes
+- **Chat with Amy** — Our AI logistics assistant answers shipping questions in English, Spanish, and Chinese
 - **Book shipments** — Create bookings directly from search results
 - **Track shipments** — Get real-time status updates
-- **Get sailing schedules** — See vessel departure and arrival dates
-- **Check port fees & customs** — Compliance info for destination countries
+- **Sailing schedules** — Vessel departure and arrival dates
+- **Customs & port info** — Compliance information by destination
 
 ## Who is this for?
 
 - **Freight forwarders** — Find real rates in seconds, not hours
 - **Importers & exporters** — Compare shipping costs before committing
-- **AI developers** — Connect your AI assistant to live freight data via MCP
+- **AI developers** — Connect your AI assistant to freight data via MCP
 
 ## For AI Developers
 
-If you build AI tools and want to connect them to live freight rate data, we support the Model Context Protocol (MCP).
+SHAQ Logistics supports the Model Context Protocol (MCP). For integration details, see our integration guide.
 
-**Full integration guide:** [search.shaq-logistics.com/mcp-guide](https://search.shaq-logistics.com/mcp-guide)
+**Live platform:** [search.shaq-logistics.com](https://search.shaq-logistics.com)
 
-## Data Scale
+## Coverage
 
-- **113,000+ real freight rate entries** — continuously updated
-- **15+ Chinese origin ports** — Yantian, Shekou, Ningbo, Shanghai, Qingdao, and more
-- **200+ global destinations** — Latin America, Oceania, Europe, Southeast Asia, Middle East, Africa
-- **All container types** — 20GP, 40GP, 40HQ, Reefer (FCL); per CBM/TON (LCL)
+We cover the world's major shipping lanes from China to global destinations across:
+- Ocean freight (FCL and LCL)
+- Air freight
+- Door-to-door logistics
 
 ## Links
 
 - **Platform:** [search.shaq-logistics.com](https://search.shaq-logistics.com)
-- **MCP Integration Guide:** [search.shaq-logistics.com/mcp-guide](https://search.shaq-logistics.com/mcp-guide)
-- **AI Assistant (Amy):** [search.shaq-logistics.com](https://search.shaq-logistics.com) (click the chat icon)
+- **Contact:** ayang@shaq-log.com
+- **WhatsApp:** +86 15818505125
 
-## About
+## License
 
-SHAQ Logistics is building the freight rate intelligence layer for global trade.
-
-**Contact:** ayang@shaq-log.com
-**WhatsApp:** +86 15818505125
+MIT License — free for commercial and personal use.
 
 ---
 
-*If this is useful, please star this repository.*
+If this is useful, please star this repository.
