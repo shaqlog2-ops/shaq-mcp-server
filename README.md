@@ -1,45 +1,49 @@
 # SHAQ Logistics
 
-> Freight rate intelligence platform powered by AI. Connect your AI assistant to live shipping data worldwide.
+> AI-powered freight rate platform with 117,000+ carrier rates from COSCO, CMA CGM and major carriers. Search live ocean (FCL/LCL) and air freight rates from China to 100+ global ports.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Live](https://img.shields.io/badge/Live-online-brightgreen.svg)](https://search.shaq-logistics.com)
 
 ## What is SHAQ Logistics?
 
-SHAQ Logistics is a freight technology platform that makes shipping rates searchable — by humans and by AI. We work with shippers, forwarders, and AI developers to bring real-time freight intelligence into the tools people already use.
+SHAQ Logistics is a Shenzhen-based freight technology platform (NVOCC) that makes shipping rates instantly searchable — by humans and by AI. With 117,000+ carrier rates from COSCO, CMA CGM and other major carriers, we cover ocean FCL, LCL, and air freight from China to 100+ global ports across South America, Europe, Middle East, Africa, and Oceania.
 
 ## What you can do
 
-- **Search freight rates** — Compare real rates across major shipping lanes
+- **Search freight rates** — Compare real rates across 100+ shipping lanes
 - **Chat with Amy** — Our AI logistics assistant answers shipping questions in English, Spanish, and Chinese
 - **Book shipments** — Create bookings directly from search results
 - **Track shipments** — Get real-time status updates
 - **Sailing schedules** — Vessel departure and arrival dates
-- **Customs & port info** — Compliance information by destination
+- **Rate alerts** — Subscribe to price change notifications for specific lanes
 
 ## Who is this for?
 
 - **Freight forwarders** — Find real rates in seconds, not hours
 - **Importers & exporters** — Compare shipping costs before committing
-- **AI developers** — Connect your AI assistant to freight data via MCP
+- **AI developers** — Connect your AI assistant to live freight data via MCP
 
 ## For AI Developers
 
-SHAQ Logistics supports the Model Context Protocol (MCP). For integration details, see our integration guide.
+SHAQ Logistics supports the Model Context Protocol (MCP). Connect your AI assistant to live freight rates:
 
 **Live platform:** [search.shaq-logistics.com](https://search.shaq-logistics.com)
 
 ## Coverage
 
-We cover the world's major shipping lanes from China to global destinations across:
-- Ocean freight (FCL and LCL)
-- Air freight
-- Door-to-door logistics
+117,000+ carrier rates from China to global destinations:
+- **Ocean FCL** — Full container loads (20GP, 40HQ, 40RF)
+- **Ocean LCL** — Less than container load
+- **Air freight** — Express and standard
+
+Covering South America, Europe, Middle East, Africa, and Oceania.
 
 ## Links
 
 - **Platform:** [search.shaq-logistics.com](https://search.shaq-logistics.com)
+- **Smithery:** [smithery.ai/servers/shaqlog2/freight-mcp](https://smithery.ai/servers/shaqlog2/freight-mcp)
+- **MCP Registry:** `com.shaq-log/freight-mcp`
 - **Contact:** ayang@shaq-log.com
 - **WhatsApp:** +86 15818505125
 
